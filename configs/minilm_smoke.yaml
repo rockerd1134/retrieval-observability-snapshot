@@ -1,0 +1,62 @@
+experiment_name: minilm_smoke
+
+datasets:
+  - name: toy_docs
+    path: ../examples/toy_docs
+
+tests:
+  - name: rag_embedding_topk
+    image: retrieval-arena/rag-embedding-topk:latest
+    build_context: ../tests/rag_embedding_topk
+    network_disabled: true
+    volumes:
+      - host_path: ../analysis/model_provenance
+        container_path: /model_provenance
+        read_only: true
+      - host_path: ../models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf
+        container_path: /models/minilm
+        read_only: true
+    config:
+      top_k: 2
+      max_context_chars_per_doc: 600
+      embedding_backend: sentence_transformers_local
+      model_id: sentence-transformers/all-MiniLM-L6-v2
+      model_revision: c9745ed1d9f207416be6d2e6f8de32d1f16199bf
+      model_lock_path: /model_provenance/embedding_models.lock.json
+      model_cache_path: /models/minilm
+      embedding_dimensions: 384
+      experiment_id: E002c
+
+  - name: rag_semantic_graph_rerank
+    image: retrieval-arena/rag-semantic-graph-rerank:latest
+    build_context: ../tests/rag_semantic_graph_rerank
+    network_disabled: true
+    volumes:
+      - host_path: ../analysis/model_provenance
+        container_path: /model_provenance
+        read_only: true
+      - host_path: ../models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf
+        container_path: /models/minilm
+        read_only: true
+    config:
+      seed_top_k: 2
+      graph_hops: 1
+      neighbor_budget: 8
+      candidate_budget: 40
+      final_top_k: 2
+      distance_penalty: 0.02
+      max_context_chars_per_doc: 600
+      embedding_backend: sentence_transformers_local
+      model_id: sentence-transformers/all-MiniLM-L6-v2
+      model_revision: c9745ed1d9f207416be6d2e6f8de32d1f16199bf
+      model_lock_path: /model_provenance/embedding_models.lock.json
+      model_cache_path: /models/minilm
+      embedding_dimensions: 384
+      use_pagerank_prior: false
+      experiment_id: E009
+
+scoring:
+  method: lexical_baseline
+  match_threshold: 0.5
+
+output_dir: ../.tmp/minilm_smoke_results

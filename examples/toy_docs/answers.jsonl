@@ -1,0 +1,3 @@
+{"question_id":"q001","answer":"Install DocWidget with pip install docwidget."}
+{"question_id":"q002","answer":"Set cache_size in config.yaml to the desired number of megabytes."}
+{"question_id":"q003","answer":"Run docwidget index rebuild to rebuild the search index."}

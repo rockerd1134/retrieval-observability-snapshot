@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "retrieval-arena"
+version = "0.1.0"
+description = "Containerized evaluation harness for documentation retrieval experiments."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+retrieval-arena = "retrieval_arena.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["retrieval_arena*", "studies*"]
+
+[tool.pytest.ini_options]
+testpaths = ["unit_tests"]
+pythonpath = ["."]

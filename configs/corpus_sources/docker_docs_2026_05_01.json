@@ -1,0 +1,18 @@
+{
+  "corpus_id": "docker_docs",
+  "destination_workspace": "../../raw/corpus_imports",
+  "docs_root": "content",
+  "exclude": [],
+  "include": [
+    "*.md",
+    "**/*.md",
+    "*.mdx",
+    "**/*.mdx"
+  ],
+  "requested_ref": "274681c49355bd951ae60c9208e854ff70f12474",
+  "schema_version": "retrieval_arena.corpus_source_descriptor.v1",
+  "snapshot_id": "2026-05-01",
+  "source_path": "../../raw/docker_docs",
+  "source_type": "git",
+  "source_url": "https://github.com/docker/docs"
+}

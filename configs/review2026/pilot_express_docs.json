@@ -1,0 +1,126 @@
+{
+  "baseline_bundle": {
+    "include_analysis": "selected",
+    "include_graphs": "selected",
+    "include_processed": "selected",
+    "include_raw": false,
+    "include_reports": true,
+    "include_results": true,
+    "require_safe_to_redistribute": true
+  },
+  "calibration_store": "../../calibration/review2026/pilot_express_docs",
+  "comparisons": [
+    {
+      "after_run_selector": {
+        "dataset": "express_docs",
+        "test": "rag_lexical_topk"
+      },
+      "before_run_selector": {
+        "dataset": "express_docs",
+        "test": "rag_lexical_topk"
+      },
+      "comparison_id": "rag_lexical_topk"
+    },
+    {
+      "after_run_selector": {
+        "dataset": "express_docs",
+        "test": "rag_vector"
+      },
+      "before_run_selector": {
+        "dataset": "express_docs",
+        "test": "rag_vector"
+      },
+      "comparison_id": "rag_vector"
+    },
+    {
+      "after_run_selector": {
+        "dataset": "express_docs",
+        "test": "rag_graph_rerank"
+      },
+      "before_run_selector": {
+        "dataset": "express_docs",
+        "test": "rag_graph_rerank"
+      },
+      "comparison_id": "rag_graph_rerank"
+    },
+    {
+      "after_run_selector": {
+        "dataset": "express_docs",
+        "test": "oracle_graph_support"
+      },
+      "before_run_selector": {
+        "dataset": "express_docs",
+        "test": "oracle_graph_support"
+      },
+      "comparison_id": "oracle_graph_support"
+    },
+    {
+      "after_run_selector": {
+        "dataset": "express_docs",
+        "test": "rag_graph_multihop_rerank"
+      },
+      "before_run_selector": {
+        "dataset": "express_docs",
+        "test": "rag_graph_multihop_rerank"
+      },
+      "comparison_id": "rag_graph_multihop_rerank"
+    },
+    {
+      "after_run_selector": {
+        "dataset": "express_docs",
+        "test": "rag_iterative_search"
+      },
+      "before_run_selector": {
+        "dataset": "express_docs",
+        "test": "rag_iterative_search"
+      },
+      "comparison_id": "rag_iterative_search"
+    }
+  ],
+  "corpus_id": "express_docs",
+  "output_root": "../../reports/review2026/pilot_express_docs",
+  "pilot_id": "pilot_express_docs_2025_09_20_to_2026_03_30",
+  "query_set_id": "express-docs-pilot-queries",
+  "retrieval": {
+    "after_config": "retrieval_express_docs_after.yaml",
+    "before_config": "retrieval_express_docs_before.yaml",
+    "selected_dataset": "express_docs",
+    "selected_tests": [
+      "rag_lexical_topk",
+      "rag_vector",
+      "rag_graph_rerank",
+      "oracle_graph_support",
+      "rag_graph_multihop_rerank",
+      "rag_iterative_search"
+    ]
+  },
+  "reuse_policy": {
+    "overwrite_reports": true,
+    "reuse_imports": true,
+    "reuse_prepared_snapshots": true,
+    "reuse_retrieval_runs": false
+  },
+  "schema_version": "retrieval_arena.review2026_pilot_plan.v1",
+  "snapshot_pair": {
+    "after": {
+      "snapshot_id": "2026-03-30",
+      "source_descriptor": "../corpus_sources/express_docs_2026_03_30.json"
+    },
+    "before": {
+      "snapshot_id": "2025-09-20",
+      "source_descriptor": "../corpus_sources/express_docs_2025_09_20.json"
+    },
+    "comparison_plan": "snapshot_comparison_express_docs.json"
+  },
+  "stages": [
+    "prerequisites",
+    "snapshot_compare",
+    "retrieval_before",
+    "retrieval_after",
+    "drift",
+    "audit",
+    "measurements",
+    "html_report",
+    "baseline_bundle"
+  ]
+}

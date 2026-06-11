@@ -1,0 +1,9 @@
+{
+  "after_descriptor": "../corpus_sources/express_docs_2026_03_30.json",
+  "before_descriptor": "../corpus_sources/express_docs_2025_09_20.json",
+  "comparison_id": "express_docs_2025_09_20_to_2026_03_30",
+  "corpus_id": "express_docs",
+  "output_dir": "../../reports/snapshot_comparisons/express_docs_2025_09_20_to_2026_03_30",
+  "overwrite_imports": false,
+  "schema_version": "retrieval_arena.corpus_snapshot_comparison_plan.v1"
+}

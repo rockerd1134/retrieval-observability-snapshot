@@ -1,0 +1,23 @@
+{
+  "after_descriptor": "../corpus_sources/docker_docs_2026_05_26.json",
+  "before_descriptor": "../corpus_sources/docker_docs_2026_05_01.json",
+  "comparison_id": "review2026_docker_docs_2026_05_01_to_2026_05_26",
+  "corpus_id": "docker_docs",
+  "answers_path": "../../processed/docker_docs/answers.jsonl",
+  "output_dir": "../../reports/review2026/pilot_docker_docs/snapshot_comparison",
+  "query_set_id": "docker-docs-pilot-queries",
+  "questions_path": "../../processed/docker_docs/questions.jsonl",
+  "graph": {
+    "enabled": true,
+    "method": "markdown_links"
+  },
+  "overwrite_imports": false,
+  "support": {
+    "enabled": true,
+    "method": "answer_lexical_overlap",
+    "qa_surface_type": "dedicated_faq",
+    "supported_threshold": 0.6,
+    "partial_threshold": 0.25
+  },
+  "schema_version": "retrieval_arena.corpus_snapshot_comparison_plan.v1"
+}

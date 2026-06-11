@@ -1,0 +1,26 @@
+experiment_name: E007b__MockLocalOnlyAgenticSearch__minidocs
+
+datasets:
+  - name: toy_docs
+    path: ../examples/toy_docs
+
+tests:
+  - name: rag_llm_guided_search_mock
+    image: retrieval-arena/rag-llm-guided-search-mock:latest
+    build_context: ../tests/rag_llm_guided_search_mock
+    config:
+      experiment_id: E007b
+      controller: mock
+      local_only: true
+      allow_network: false
+      search_top_k: 2
+      inspect_budget: 4
+      follow_budget_per_page: 2
+      final_top_k: 2
+      max_actions: 12
+
+scoring:
+  method: lexical_baseline
+  match_threshold: 0.5
+
+output_dir: ../results

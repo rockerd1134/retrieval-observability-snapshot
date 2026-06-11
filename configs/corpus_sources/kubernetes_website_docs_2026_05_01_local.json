@@ -1,0 +1,16 @@
+{
+  "corpus_id": "kubernetes_website_docs",
+  "destination_workspace": "../../raw/corpus_imports",
+  "docs_root": "content/en",
+  "exclude": [],
+  "include": [
+    "*.md",
+    "**/*.md"
+  ],
+  "requested_ref": "ada14be834a740e4e0c3d6480093fc65d9d9c770",
+  "schema_version": "retrieval_arena.corpus_source_descriptor.v1",
+  "snapshot_id": "2026-05-01",
+  "source_path": "../../raw/kubernetes_website_snapshots/2026-05-01-local",
+  "source_type": "local",
+  "source_url": "https://github.com/kubernetes/website"
+}

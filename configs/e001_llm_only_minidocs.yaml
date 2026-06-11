@@ -1,0 +1,37 @@
+experiment_name: E001__Semantic_Search__NoAgent__LLMOnlyBaseline__minidocs
+
+datasets:
+  - name: minidocs
+    path: ../processed/minidocs
+
+tests:
+  - name: oracle_perfect
+    image: retrieval-arena/oracle-perfect:latest
+    build_context: ../tests/oracle_perfect
+    config:
+      mode: perfect
+
+  - name: oracle_empty
+    image: retrieval-arena/oracle-empty:latest
+    build_context: ../tests/oracle_empty
+    config:
+      mode: empty
+
+  - name: oracle_partial
+    image: retrieval-arena/oracle-partial:latest
+    build_context: ../tests/oracle_partial
+    config:
+      mode: partial
+
+  - name: llm_only
+    image: retrieval-arena/llm-only:latest
+    build_context: ../tests/llm_only
+    config:
+      model: dummy
+      experiment_id: E001
+
+scoring:
+  method: lexical_baseline
+  match_threshold: 0.5
+
+output_dir: ../reports/retrieval_arena

@@ -1,0 +1,24 @@
+experiment_name: replay_validation_docker_docs_before_lexical
+
+datasets:
+  - name: docker_docs
+    path: ../../reports/review2026/pilot_docker_docs/snapshot_comparison/before/dataset
+    query_set_id: docker-docs-pilot-queries
+    corpus_snapshot_manifest: ../../reports/review2026/pilot_docker_docs/snapshot_comparison/before/snapshot_manifests/corpus_snapshot_manifest.json
+    graph_snapshot_manifest: ../../reports/review2026/pilot_docker_docs/snapshot_comparison/before/snapshot_manifests/graph_snapshot_manifest.json
+    support_surface_manifest: ../../reports/review2026/pilot_docker_docs/snapshot_comparison/before/snapshot_manifests/support_surface_manifest.json
+
+tests:
+  - name: rag_lexical_topk
+    image: retrieval-arena/rag-lexical-topk:latest
+    build_context: ../../tests/rag_lexical_topk
+    config:
+      top_k: 5
+      max_context_chars_per_doc: 1500
+      experiment_id: E002b
+
+scoring:
+  method: lexical_baseline
+  match_threshold: 0.5
+
+output_dir: ../../reports/review2026/replay_validation/actual/docker_docs/before_lexical

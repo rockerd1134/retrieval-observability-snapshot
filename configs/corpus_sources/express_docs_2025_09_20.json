@@ -1,0 +1,16 @@
+{
+  "corpus_id": "express_docs",
+  "destination_workspace": "../../raw/corpus_imports",
+  "docs_root": "en",
+  "exclude": [],
+  "include": [
+    "*.md",
+    "**/*.md"
+  ],
+  "requested_ref": "74e27ec71d391c89829076063f4f5c29e43c6c9c",
+  "schema_version": "retrieval_arena.corpus_source_descriptor.v1",
+  "snapshot_id": "2025-09-20",
+  "source_path": "../../raw/express_docs",
+  "source_type": "git",
+  "source_url": "https://github.com/expressjs/expressjs.com.git"
+}

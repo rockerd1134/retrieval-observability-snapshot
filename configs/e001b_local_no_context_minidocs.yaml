@@ -1,0 +1,26 @@
+experiment_name: E001b__Semantic_Search__NoAgent__LocalNoContextLLM__minidocs
+
+datasets:
+  - name: minidocs
+    path: ../processed/minidocs
+
+tests:
+  - name: local_no_context_llm_e001b
+    image: retrieval-arena/local-no-context-llm-e001b:latest
+    build_context: ../tests/local_no_context_llm_e001b
+    network_disabled: true
+    config:
+      experiment_id: E001b
+      provider: mock
+      model_id: mock/review-e001b-no-context-v1
+      local_only: true
+      allow_network: false
+      allow_local_provider_execution: false
+      prompt_version: review_e001b_no_context_prompt_v1
+      response_schema_version: review_e001b_no_context_answer_v1
+
+scoring:
+  method: lexical_baseline
+  match_threshold: 0.5
+
+output_dir: ../reports/retrieval_arena

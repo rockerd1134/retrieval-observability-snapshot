@@ -1,0 +1,23 @@
+{
+  "after_descriptor": "../corpus_sources/kubernetes_website_docs_2026_05_26_local.json",
+  "before_descriptor": "../corpus_sources/kubernetes_website_docs_2026_05_01_local.json",
+  "comparison_id": "review2026_kubernetes_website_docs_2026_05_01_to_2026_05_26",
+  "corpus_id": "kubernetes_website_docs",
+  "answers_path": "../../processed/kubernetes_website_docs/answers.jsonl",
+  "output_dir": "../../reports/review2026/pilot_kubernetes_website_docs/snapshot_comparison",
+  "query_set_id": "kubernetes-website-docs-pilot-queries",
+  "questions_path": "../../processed/kubernetes_website_docs/questions.jsonl",
+  "graph": {
+    "enabled": true,
+    "method": "markdown_links"
+  },
+  "overwrite_imports": false,
+  "support": {
+    "enabled": true,
+    "method": "answer_lexical_overlap",
+    "qa_surface_type": "extracted_questions",
+    "supported_threshold": 0.6,
+    "partial_threshold": 0.25
+  },
+  "schema_version": "retrieval_arena.corpus_snapshot_comparison_plan.v1"
+}

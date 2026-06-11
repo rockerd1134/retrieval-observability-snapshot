@@ -1,0 +1,49 @@
+experiment_name: toy_faq_reconstruction
+
+datasets:
+  - name: toy_docs
+    path: ../examples/toy_docs
+
+tests:
+  - name: oracle_perfect
+    image: retrieval-arena/oracle-perfect:latest
+    build_context: ../tests/oracle_perfect
+    config:
+      mode: perfect
+
+  - name: oracle_empty
+    image: retrieval-arena/oracle-empty:latest
+    build_context: ../tests/oracle_empty
+    config:
+      mode: empty
+
+  - name: oracle_partial
+    image: retrieval-arena/oracle-partial:latest
+    build_context: ../tests/oracle_partial
+    config:
+      mode: partial
+
+  - name: llm_only
+    image: retrieval-arena/llm-only:latest
+    build_context: ../tests/llm_only
+    config:
+      model: dummy
+
+  - name: rag_vector
+    image: retrieval-arena/rag-vector:latest
+    build_context: ../tests/rag_vector
+    config:
+      top_k: 2
+
+  - name: rag_graph_expand
+    image: retrieval-arena/rag-graph-expand:latest
+    build_context: ../tests/rag_graph_expand
+    config:
+      top_k: 2
+      graph_expansion_hops: 1
+
+scoring:
+  method: lexical_baseline
+  match_threshold: 0.5
+
+output_dir: ../results
